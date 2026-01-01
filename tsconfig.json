@@ -8,9 +8,9 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "types": [
+    /*"types": [
       "vite/client"
-    ],
+    ],*/
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {

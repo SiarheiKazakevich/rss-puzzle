@@ -16,7 +16,24 @@ function render(): void {
     const subtitle = document.createElement('p');
     subtitle.textContent = 'Введите имя, чтобы начать игру';
 
-    root.append(title, subtitle);
+
+    const button = document.createElement('button');
+    button.textContent = 'Start';
+
+    button.addEventListener('click', () => {
+      store.setState({ currentPage: 'start' });
+    });
+
+    root.append(title, subtitle, button);
+  }
+  if (currentPage === 'start') {
+    const title = document.createElement('h1');
+    title.textContent = 'Start screen';
+
+    const text = document.createElement('p');
+    text.textContent = 'Здесь будет стартовый экран игры';
+
+    root.append(title, text);
   }
 }
 store.subscribe(render);
