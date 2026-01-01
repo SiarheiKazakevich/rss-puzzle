@@ -5,7 +5,7 @@ const root = document.getElementById('app') as HTMLElement;
 
 
 function render(): void {
-  const { currentPage } = store.getState();
+  const { currentPage, userName } = store.getState();
 
   root.innerHTML = '';
 
@@ -14,24 +14,34 @@ function render(): void {
     title.textContent = 'RSS Puzzle — Login';
 
     const subtitle = document.createElement('p');
-    subtitle.textContent = 'Введите имя, чтобы начать игру';
+    subtitle.textContent = 'Введите имя, чтобы начать игру :';
+
+    // add input
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Введите имя';
+    input.value = userName ?? '';
+
 
 
     const button = document.createElement('button');
     button.textContent = 'Start';
 
     button.addEventListener('click', () => {
-      store.setState({ currentPage: 'start' });
+      store.setState({
+        userName: input.value.trim(),
+        currentPage: 'start'
+      });
     });
 
-    root.append(title, subtitle, button);
+    root.append(title, subtitle, input, button);
   }
   if (currentPage === 'start') {
     const title = document.createElement('h1');
     title.textContent = 'Start screen';
 
     const text = document.createElement('p');
-    text.textContent = 'Здесь будет стартовый экран игры';
+    text.textContent = `Привет, ${userName ?? 'игрок'}!`;
 
     root.append(title, text);
   }
