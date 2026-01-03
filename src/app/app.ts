@@ -43,6 +43,24 @@ function render(): void {
     const text = document.createElement('p');
     text.textContent = `Привет, ${userName ?? 'игрок'}!`;
 
+    // кнопка для запуска игры
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play';
+
+    playButton.addEventListener('click', () => {
+      store.setState({ currentPage: 'game' });
+    });
+
+    root.append(title, text, playButton);
+  }
+  //поле игры
+  if (currentPage === 'game') {
+    const title = document.createElement('h1');
+    title.textContent = 'Game screen';
+
+    const text = document.createElement('p');
+    text.textContent = 'здесь будет игровое поле';
+
     root.append(title, text);
   }
 }
