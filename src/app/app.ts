@@ -1,5 +1,6 @@
 import { store } from './state/store';
-import { renderWords } from './game/gameView';
+/*import { renderWords } from './game/gameView';*/
+import { renderGame } from './game/gameView';
 
 
 const root = document.getElementById('app') as HTMLElement;
@@ -95,7 +96,7 @@ function render(): void {
       store.setState({ currentPage: 'start' });
     });
 
-    renderWords(wordsArea);
+    renderGame(wordsArea, sentenceArea);
 
     root.append(header, title, sentenceArea, wordsArea, hintsArea, backButton);
   }
