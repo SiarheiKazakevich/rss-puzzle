@@ -37,7 +37,16 @@ export function renderGame(
     .filter((word) => word.used)
     .forEach((word) => {
       const placedWord = document.createElement('span');
-      placedWord.textContent = `${word.text}`;
+      placedWord.textContent = word.text;
+      placedWord.style.cursor = 'pointer';
+
+      placedWord.addEventListener('click', () => {
+        word.used = false;
+        renderGame(wordsContainer, sentenceContainer);
+      });
+
+
+
       sentenceContainer.append(placedWord);
     });
 }
