@@ -1,1 +1,1 @@
-# rss-puzzle
+https://siarheikazakevich.github.io/rss-puzzle/
